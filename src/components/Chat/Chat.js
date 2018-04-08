@@ -31,12 +31,6 @@ class Chat extends Component {
 		this.setState({messages: messageList})
 	}
 
-	componentWillReceiveProps(nextProps) {
-		this.setState({
-			messages: nextProps.messages,
-		})
-	}
-
 	changeInputMessage = (event) => {
 		let inputVal = event.target.value;
 		this.setState( ({messageInput}) => ({ messageInput: inputVal}));
@@ -50,11 +44,9 @@ class Chat extends Component {
 				text: this.state.messageInput
 			};
 
-			console.log(this.state.messageInput);
-
-			let newMessageList = this.state.messages.slice();
-			newMessageList.push(message);
-			this.setState({messages: newMessageList});
+			this.setState( ({messages}) => ({
+				messages: this.state.messages.push(message)
+			}));
 			this.setState( ({messageInput}) => ({ messageInput: ''}));
 		}
 	};
@@ -78,7 +70,7 @@ class Chat extends Component {
 						<ul>
 							{
 								messageList.map((message,index) => {
-									return <Message key={index} time={message.when} name={message.name} text={message.text} state={this.state.showMessages} />
+									return <Message key={index} time={message.when} name={message.name} text={message.text} isShown ={this.state.showMessages} />
 								})
 							}
 						</ul>

@@ -20,8 +20,8 @@
           <file leaf-file-name="Chat.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/components/Chat/Chat.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="221">
-                  <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+                <state relative-caret-position="204">
+                  <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
                   <folding>
                     <element signature="e#0#41#0" expanded="true" />
                   </folding>
@@ -58,7 +58,7 @@
           <file leaf-file-name="Chat.test.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/components/Chat/Chat.test.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2346">
+                <state relative-caret-position="1598">
                   <caret line="39" column="22" lean-forward="false" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="34" />
                   <folding>
                     <element signature="e#0#26#0" expanded="true" />
@@ -116,8 +116,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="73" />
-    <option name="y" value="135" />
+    <option name="x" value="52" />
+    <option name="y" value="63" />
     <option name="width" value="1616" />
     <option name="height" value="739" />
   </component>
@@ -326,7 +326,7 @@
       <option name="presentableId" value="Default" />
       <updated>1523189576711</updated>
       <workItem from="1523189578146" duration="1099000" />
-      <workItem from="1523198904823" duration="13318000" />
+      <workItem from="1523198904823" duration="15193000" />
     </task>
     <task id="LOCAL-00001" summary="3rd test -&gt; fixed">
       <created>1523189849183</created>
@@ -363,16 +363,24 @@
       <option name="project" value="LOCAL" />
       <updated>1523210474836</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="clear input">
+      <created>1523215530800</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1523215530800</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14417000" />
+    <option name="totallyTimeSpent" value="16292000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="73" y="135" width="1616" height="739" extended-state="0" />
+    <frame x="52" y="63" width="1616" height="739" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19473007" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19473007" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -404,7 +412,8 @@
     <MESSAGE value="sendMessageOnEnter" />
     <MESSAGE value="new message list -&gt; get data" />
     <MESSAGE value="min-fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="min-fix" />
+    <MESSAGE value="clear input" />
+    <option name="LAST_COMMIT_MESSAGE" value="clear input" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -415,7 +424,7 @@
     <entry file="file://$PROJECT_DIR$/src/components/App/App.js" />
     <entry file="file://$PROJECT_DIR$/src/components/Chat/Chat.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2346">
+        <state relative-caret-position="1598">
           <caret line="39" column="22" lean-forward="false" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="34" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
@@ -465,6 +474,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Chat/Chat.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="176" column="30" lean-forward="false" selection-start-line="176" selection-start-column="30" selection-end-line="176" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Message/Message.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -475,18 +492,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Chat/Chat.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="176" column="30" lean-forward="false" selection-start-line="176" selection-start-column="30" selection-end-line="176" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Chat/Chat.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+        <state relative-caret-position="204">
+          <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
