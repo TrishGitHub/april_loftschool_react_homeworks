@@ -51,10 +51,13 @@ class Chat extends Component {
 				text: inputVal
 			};
 
-			let messageList = this.state.messages.slice();
-			messageList.push(message);
-			console.log(messageList);
-			this.setState({messages: messageList});
+			let newMessageList = this.state.messages.slice();
+			newMessageList.push(message);
+			this.setState({messages: newMessageList});
+
+			console.log(this.state.messages);
+
+			this._text.value= '';
 		}
 	};
 
@@ -86,6 +89,7 @@ class Chat extends Component {
 						<input className="input-message"
 						       type="text"
 						       placeholder="Введите сообщение"
+						       ref={input => this._text = input}
 						       value={this.state.messageInput}
 						       onChange={this.changeInputMessage}
 						       onKeyPress={this.sendMessageOnEnter}>
