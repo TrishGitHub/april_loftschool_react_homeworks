@@ -44,8 +44,11 @@ class Chat extends Component {
 				text: this.state.messageInput
 			};
 
+			let newMessageList = this.state.messages;
+			newMessageList.push(message);
+
 			this.setState( ({messages}) => ({
-				messages: this.state.messages.push(message)
+				messages: newMessageList
 			}));
 			this.setState( ({messageInput}) => ({ messageInput: ''}));
 		}
