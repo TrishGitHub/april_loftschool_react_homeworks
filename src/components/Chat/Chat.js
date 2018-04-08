@@ -44,20 +44,18 @@ class Chat extends Component {
 
 	sendMessageOnEnter =(event)=> {
 		if(event.key === 'Enter' && this.state.messageInput.length) {
-			let inputVal = event.target.value;
 			let message = {
 				when: "10:26 AM, Today",
 				name: "Olia",
-				text: inputVal
+				text: this.state.messageInput
 			};
+
+			console.log(this.state.messageInput);
 
 			let newMessageList = this.state.messages.slice();
 			newMessageList.push(message);
 			this.setState({messages: newMessageList});
-
-			console.log(this.state.messages);
-
-			this._text.value= '';
+			this.setState( ({messageInput}) => ({ messageInput: ''}));
 		}
 	};
 
