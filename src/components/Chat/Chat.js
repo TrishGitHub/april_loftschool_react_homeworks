@@ -11,14 +11,13 @@ class Chat extends Component {
 
 	changeInputMessage = (event) => {
 		let inputVal = event.target.value;
-		console.log(inputVal);
-
 		this.setState( ({messageInput}) => ({ messageInput: inputVal}));
-
 	};
 
-	sendMessageOnEnter =()=> {
-
+	sendMessageOnEnter =(event)=> {
+		if(event.key === 'Enter' && this.state.messageInput.length) {
+			alert("new message");
+		}
 	};
 
 
