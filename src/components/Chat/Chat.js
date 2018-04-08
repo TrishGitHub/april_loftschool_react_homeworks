@@ -1,13 +1,41 @@
 import React, { Component } from 'react';
+import Message from '../Message/Message';
 import './Chat.css';
+
+let messageList = [{
+	when: "10:10 AM, Today",
+	name: "Olia",
+	text: "Hi Vincent, how are you? How is the project coming along?"
+}, {
+	when: "10:12 AM, Today",
+	name: "Vincent",
+	text: "Are we meeting today? Project has been already finished and I have results to show you."
+}, {
+	when: "10:14 AM, Today",
+	name: "Olia",
+	text: "Well I am not sure. The rest of the team is not here yet. Maybe in an hour or so? Have you faced any problems at the last phase of the project?"
+}, {
+	when: "10:26 AM, Today",
+	name: "Vincent",
+	text: "Actually everything was fine. I'm very excited to show this to our team."
+} ];
 
 class Chat extends Component {
 
 	state = {
 		messages: [],
 		messageInput: '',
-
 	};
+
+	componentDidMount() {
+		this.setState({messages: messageList})
+	}
+
+	componentWillReceiveProps(nextProps) {
+		this.setState({
+			messages: nextProps.messages,
+		})
+	}
 
 	changeInputMessage = (event) => {
 		let inputVal = event.target.value;
@@ -16,7 +44,17 @@ class Chat extends Component {
 
 	sendMessageOnEnter =(event)=> {
 		if(event.key === 'Enter' && this.state.messageInput.length) {
-			alert("new message");
+			let inputVal = event.target.value;
+			let message = {
+				when: "10:26 AM, Today",
+				name: "Olia",
+				text: inputVal
+			};
+
+			let messageList = this.state.messages.slice();
+			messageList.push(message);
+			console.log(messageList);
+			this.setState({messages: messageList});
 		}
 	};
 
@@ -37,56 +75,11 @@ class Chat extends Component {
 					</div>
 					<div className="chat-history">
 						<ul>
-							<li className="clearfix">
-								<div className="message-data align-right">
-									<span className="message-data-time">10:10 AM, Today</span> &nbsp; &nbsp;
-									<span className="message-data-name">Olia</span> <i className="fa fa-circle me"/>
-								</div>
-								<div className="message other-message float-right">
-									Hi Vincent, how are you? How is the project coming along?
-								</div>
-							</li>
-							<li>
-								<div className="message-data">
-									<span className="message-data-name"><i
-										className="fa fa-circle online"/> Vincent</span>
-									<span className="message-data-time">10:12 AM, Today</span>
-								</div>
-								<div className="message my-message">
-									Are we meeting today? Project has been already finished and I have results to show
-									you.
-								</div>
-							</li>
-							<li className="clearfix">
-								<div className="message-data align-right">
-									<span className="message-data-time">10:14 AM, Today</span> &nbsp; &nbsp;
-									<span className="message-data-name">Olia</span> <i className="fa fa-circle me"/>
-								</div>
-								<div className="message other-message float-right">
-									Well I am not sure. The rest of the team is not here yet. Maybe in an hour or so?
-									Have you faced any problems at the last phase of the project?
-								</div>
-							</li>
-							<li>
-								<div className="message-data">
-									<span className="message-data-name"><i
-										className="fa fa-circle online"/> Vincent</span>
-									<span className="message-data-time">10:20 AM, Today</span>
-								</div>
-								<div className="message my-message">
-									Actually everything was fine. I'm very excited to show this to our team.
-								</div>
-							</li>
-							<li>
-								<div className="message-data">
-									<span className="message-data-name"><i
-										className="fa fa-circle online"/> Vincent</span>
-									<span className="message-data-time">10:31 AM, Today</span>
-								</div>
-								<i className="fa fa-circle online"/>
-								<i className="fa fa-circle online" style={{color: '#AED2A6'}}/>
-								<i className="fa fa-circle online" style={{color: '#DAE9DA'}}/>
-							</li>
+							{
+								messageList.map((message,index) => {
+									return <Message key={index} time={message.when} name={message.name} text={message.text} state={this.state.showMessages} />
+								})
+							}
 						</ul>
 					</div>
 					<div className="chat-message clearfix">
