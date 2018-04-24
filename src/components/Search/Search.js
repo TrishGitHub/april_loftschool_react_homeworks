@@ -16,8 +16,8 @@ class Search extends PureComponent {
 	};
 
 	onChangeHandler = (e) => {
-		const { inputVal } = e.target;
-		this.setState(state => ({ ...state, searchQuery: inputVal }));
+		const { inputVal } = e.target.value;
+		this.setState( ({ searchQuery }) => ({ searchQuery: inputVal}));
 	};
 
 	render () {
