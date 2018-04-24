@@ -1,26 +1,26 @@
 import { handleActions } from 'redux-actions';
 import { combineReducers } from 'redux';
-import { getSeriesRequest, getSeriesSuccess, getSeriesFailure } from '../actions/search';
+import { searchSeriesRequest, searchSeriesSuccess, searchSeriesFailure } from '../actions/search';
 
 const series = handleActions(
 	{
-		[getSeriesSuccess]: (state, action) => action.payload
+		[searchSeriesSuccess]: (state, action) => action.payload
 	},
 	[]
 );
 
 const isLoading = handleActions(
 	{
-		[getSeriesRequest]: () => true,
-		[getSeriesSuccess]: () => false,
-		[getSeriesFailure]: () => false
+		[searchSeriesRequest]: () => true,
+		[searchSeriesSuccess]: () => false,
+		[searchSeriesFailure]: () => false
 	},
 	false,
 );
 
 const error = handleActions(
 	{
-		[getSeriesFailure]: (state, action) => action.error,
+		[searchSeriesFailure]: (state, action) => action.error,
 	},
 	null
 );

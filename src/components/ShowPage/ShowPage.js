@@ -1,13 +1,12 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { getSeriesRequest } from '../../actions/show';
-import Person from './Person';
+import { showSeriesRequest } from '../../actions/show';
 
 class ShowPage extends PureComponent {
 
-	componentDidMount () {
+	componentWillMount () {
 		const id = this.props.match.params.id;
-		this.props.getSeriesRequest(id);
+		this.props.showSeriesRequest(id);
 	}
 
 	render () {
@@ -19,19 +18,21 @@ class ShowPage extends PureComponent {
 		} else if (error) {
 			content = <p>Во время обращения к серверу произошла ошибка</p>;
 		} else if (series) {
-			const { id, image, name, summary } = series;
-			const persons = series._embedded.cast;
+			const { image, name, summary } = series;
 
 			content = (
-				<div data-id={id} className="show">
+				<div className="show">
 					<p>{ name }</p>
-					{image && <img src={ image.medium } alt={ name }/>}
+					{ image && <img src={ image.medium } alt={ name }/> }
 					<div dangerouslySetInnerHTML={{__html: summary}} />
-
-					<div className="t-person-list">
-						{persons.map(({ person: item }) =>
-							<Person key={ item.id } {...item }/>
-						)}
+					<div>
+						{series._embedded &&
+						series._embedded.cast.map(({ person }, idx) => (
+							<div className="t-person" key={idx}>
+								<p>{person.name}</p>
+								{person.image && <img src={person.image.medium} alt={person.name} />}
+							</div>
+						))}
 					</div>
 				</div>
 			);
@@ -48,7 +49,7 @@ const mapStateToProps = ({ shows: { series, isLoading, error } }) => ({
 });
 
 const mapDispatchToProps = {
-	getSeriesRequest
+	showSeriesRequest,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShowPage);

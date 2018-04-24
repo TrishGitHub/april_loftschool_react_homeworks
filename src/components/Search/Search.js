@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { getSeriesRequest } from '../../actions/search';
+import { searchSeriesRequest } from '../../actions/search';
 import ShowPreview from '../ShowPreview';
 
 class Search extends PureComponent {
@@ -9,15 +9,15 @@ class Search extends PureComponent {
 	};
 
 	onClickHandler = () => {
-		const { getSeriesRequest } = this.props;
+		const { searchSeriesRequest } = this.props;
 		const { searchQuery } = this.state;
 
-		getSeriesRequest(searchQuery);
+		searchSeriesRequest(searchQuery);
 	};
 
 	onChangeHandler = (e) => {
 		const { inputVal } = e.target;
-		this.setState( ({ searchQuery }) => ({ searchQuery: inputVal }));
+		this.setState(state => ({ ...state, searchQuery: inputVal }));
 	};
 
 	render () {
@@ -65,7 +65,7 @@ const mapStateToProps = ({ search: { isLoading, series, error } }) => ({
 });
 
 const mapDispatchToProps = {
-	getSeriesRequest
+	searchSeriesRequest
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);

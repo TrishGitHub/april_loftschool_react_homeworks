@@ -1,26 +1,26 @@
 import { handleActions } from 'redux-actions';
 import { combineReducers } from 'redux';
-import { getSeriesRequest, getSeriesSuccess, getSeriesFailure } from '../actions/show';
+import { showSeriesRequest, showSeriesSuccess, showSeriesFailure } from '../actions/show';
 
 const series = handleActions(
 	{
-		[getSeriesSuccess]:(state, action) => ({ ...state, ...action.payload }),
+		[showSeriesSuccess]:(state, action) => ({ ...state, ...action.payload }),
 	},
 	{},
 );
 
 const isLoading = handleActions(
 	{
-		[getSeriesRequest]: () => true,
-		[getSeriesSuccess]: () => false,
-		[getSeriesFailure]: () => false
+		[showSeriesRequest]: () => true,
+		[showSeriesSuccess]: () => false,
+		[showSeriesFailure]: () => false
 	},
 	false
 );
 
 const error = handleActions(
 	{
-		[getSeriesFailure]: (state, action) => action.error,
+		[showSeriesFailure]: (state, action) => action.error,
 	},
 	null
 );
