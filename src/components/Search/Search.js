@@ -1,71 +1,53 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { searchSeriesRequest } from '../../actions/search';
+import { searchSerialsRequest } from 'actions/search';
 import ShowPreview from '../ShowPreview';
 
 class Search extends PureComponent {
-	state = {
-		searchQuery: ''
-	};
+  state = {
+    searchQuery: ''
+  };
 
-	onClickHandler = () => {
-		const { searchSeriesRequest } = this.props;
-		const { searchQuery } = this.state;
+  handleClick = () => {
+    const { searchSerialsRequest } = this.props;
+    const { searchQuery } = this.state;
 
-		searchSeriesRequest(searchQuery);
-	};
+    searchSerialsRequest(searchQuery);
+  };
 
-	onChangeHandler = (e) => {
-		const { inputVal } = e.target.value;
-		this.setState( ({ searchQuery }) => ({ searchQuery: inputVal}));
-	};
+  handleChange = (e) => {
+    const { value } = e.target;
+    this.setState(state => ({...state, searchQuery: value }))
+  }
 
-	render () {
-		const { isLoading, series, error } = this.props;
-		const { searchQuery } = this.state;
-		let content = null;
+  render() {
+    const { isLoading, serials } = this.props;
+    const { searchQuery } = this.state;
 
-		if (isLoading) {
-			content = <p>Поиск...</p>;
-		} else if (error) {
-			content = <p>При обращении к серверу произошла ошибка</p>;
-		} else {
-			content = series.map(item =>
-				<ShowPreview key={ item.id }
-				             id={ item.id }
-				             image={ item.image }
-				             name={ item.name }
-				             summary={ item.summary }
-				/>
-			);
-		}
-
-		return (
-			<div className="search-input">
-				<div className="from-group">
-					<input type="text"
-					       value={ searchQuery }
-					       onChange={this.onChangeHandler}
-					       placeholder="Название сериала"
-					/>
-					<button onClick={this.onClickHandler}>Найти</button>
-				</div>
-				<div className="t-search-result">
-					{content}
-				</div>
-			</div>
-		);
-	}
+    return (
+      <div>
+        <input
+               value={ searchQuery }
+               onChange={ this.handleChange }
+               placeholder="Cериал"
+        />
+        <button onClick={ this.handleClick }>Найти</button>
+        <div className="t-search-result">
+          {isLoading ? (
+            <p>Загрузка данных</p>
+          ) : (
+            serials.map(serial => <ShowPreview {...serial} key={serial.name} />)
+          )}
+        </div>
+      </div>
+    );
+  }
 }
 
-const mapStateToProps = ({ search: { isLoading, series, error } }) => ({
-	isLoading,
-	series,
-	error
+const mapStateToProps = ({ search }) => ({
+  isLoading: search.isLoading,
+  serials: search.serials,
 });
-
-const mapDispatchToProps = {
-	searchSeriesRequest
-};
+const mapDispatchToProps = { searchSerialsRequest };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);

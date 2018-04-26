@@ -1,18 +1,18 @@
-import { searchSeriesRequest, searchSeriesSuccess, searchSeriesFailure } from '../actions/search';
-import { search } from '../api';
+import { searchSerialsRequest, searchSerialsSuccess, searchSerialsFailure } from 'actions/search';
+import { search } from 'api';
 
 const searchMiddleware = store => next => action => {
-	if (action.type === searchSeriesRequest.toString()) {
-		search(action.payload)
-			.then(series => {
-				store.dispatch(searchSeriesSuccess(series));
-			})
-			.catch(error => {
-				store.dispatch(searchSeriesFailure(error));
-			});
-	}
+  if (action.type === searchSerialsRequest.toString()) {
+    search(action.payload)
+      .then(serials => {
+        store.dispatch(searchSerialsSuccess(serials));
+      })
+      .catch(error => {
+        store.dispatch(searchSerialsFailure(error));
+      });
+  }
 
-	return next(action);
+  return next(action);
 };
 
 export default searchMiddleware;

@@ -1,13 +1,16 @@
 import { createActions } from 'redux-actions';
 
 const {
-	search: {
-		request: searchSeriesRequest,
-		success: searchSeriesSuccess,
-		failure: searchSeriesFailure,
-	},
-} = createActions({
-	SEARCH: { REQUEST: null, SUCCESS: null, FAILURE: null },
-});
+  search: {
+    request: searchSerialsRequest,
+    success: searchSerialsSuccess,
+    failure: searchSerialsFailure,
+  },
+} = createActions(
+  {
+    SEARCH: { REQUEST: null, SUCCESS: null, FAILURE: null },
+  },
+  { namespace: '_' },
+);
 
-export { searchSeriesRequest, searchSeriesSuccess, searchSeriesFailure };
+export { searchSerialsRequest, searchSerialsSuccess, searchSerialsFailure };

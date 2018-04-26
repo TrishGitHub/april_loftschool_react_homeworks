@@ -4,23 +4,52 @@
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  /*animation: App-logo-spin infinite 20s linear;*/
+  /*height: 80px;*/
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+  /*background-color: #222;*/
+  /*height: 150px;*/
+  /*padding: 20px;*/
   color: white;
 }
 
 .App-title {
   font-size: 1.5em;
+  padding: 20px 0;
+  font-weight: bold;
 }
 
 .App-intro {
   font-size: large;
+}
+
+.t-search-result {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.t-preview {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.t-person {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.t-person-item {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
 }
 
 .t-link {
